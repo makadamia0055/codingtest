@@ -1,0 +1,8 @@
+-- 코드를 작성해주세요
+SELECT inf.ITEM_ID, inf.ITEM_NAME, inf.RARITY FROM 
+    (SELECT t.item_id FROM ITEM_INFO i
+     RIGHT JOIN ITEM_TREE t on t.PARENT_ITEM_ID = i.ITEM_ID
+    WHERE I.RARITY LIKE 'RARE') s
+    
+LEFT JOIN ITEM_INFO inf on s.ITEM_ID = inf.ITEM_ID
+ORDER BY inf.ITEM_ID DESC;
